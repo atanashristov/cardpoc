@@ -96,7 +96,7 @@ async function getCardsForUser(auth, userId) {
   const sheets = google.sheets({version: 'v4', auth});
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: '1bejWECG8T_GBa7ydVhkEs2lXsTnxKHg-0yKjOXJ82Lk',
-    range: 'Class Data!A2:L',
+    range: 'cardpoc!A2:L',
   });
 
   const rows = res.data.values;
