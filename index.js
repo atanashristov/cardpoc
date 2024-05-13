@@ -119,7 +119,7 @@ async function getCardsForUser(auth, userId) {
       userId : row[0],
       cardId : row[1],
       expirationDate : row[2],
-      priority : row[3],
+      priority : parseInt(row[3]) || 0,
       overline : row[4],
       title : row[5],
       subtitle : row[6],
@@ -132,9 +132,9 @@ async function getCardsForUser(auth, userId) {
     .filter((row) => Date.parse(row.expirationDate) >= Date.now())
     .sort((row1, row2) => {
       if (row1.priority < row2.priority) {
-        return -1;
-      } else if (row1.priority > row2.priority) {
         return 1;
+      } else if (row1.priority > row2.priority) {
+        return -1;
       } else {
         return 0;
       }
