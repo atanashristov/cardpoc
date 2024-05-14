@@ -96,7 +96,7 @@ async function getCardsForUser(auth, userId) {
   const sheets = google.sheets({version: 'v4', auth});
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: '1bejWECG8T_GBa7ydVhkEs2lXsTnxKHg-0yKjOXJ82Lk',
-    range: 'cardpoc!A2:L',
+    range: 'cardpoc!A2:Y',
   });
 
   const rows = res.data.values;
@@ -127,7 +127,14 @@ async function getCardsForUser(auth, userId) {
       body2 : row[8],
       button1 : row[9],
       button2 : row[10],
-      badge : row[11]
+      badge : row[11],
+      badgeSuccess : row[11],
+      badgeWarning : row[12],
+      badgeDanger : row[13],
+      dataPoint1 : row[14],
+      dataPoint1Subtitle : row[15],
+      dataPoint2 : row[16],
+      dataPoint2Subtitle : row[17],
     }})
     .filter((row) => Date.parse(row.expirationDate) >= Date.now())
     .sort((row1, row2) => {
