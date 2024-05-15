@@ -126,7 +126,9 @@ async function getCardsForUser(auth, userId) {
       body1 : row[7],
       body2 : row[8],
       button1 : row[9],
+      button1Caption : row[9],
       button2 : row[10],
+      button2Caption : row[10],
       badge : row[11],
       badgeSuccess : row[11],
       badgeWarning : row[12],
@@ -135,6 +137,8 @@ async function getCardsForUser(auth, userId) {
       dataPoint1Subtitle : row[15],
       dataPoint2 : row[16],
       dataPoint2Subtitle : row[17],
+      button1Url : row[18],
+      button2Url : row[19],
     }})
     .filter((row) => Date.parse(row.expirationDate) >= Date.now())
     .sort((row1, row2) => {
